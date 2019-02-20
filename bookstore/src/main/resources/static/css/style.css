@@ -6,7 +6,14 @@
 hr{
 	border: 1px solid purple;
 }
-
+.section_headline{
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 24px;
+	color: black;
+	margin: auto;
+	text-align:center;
+	margin-top: 50px;
+}
 
 
       .bd-placeholder-img {

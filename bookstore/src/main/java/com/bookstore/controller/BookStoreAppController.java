@@ -11,4 +11,25 @@ public class BookStoreAppController {
 		model.addAttribute("activeMyAccount",true);
 		return "myAccount";
 	}
+	
+
+	@RequestMapping(value="/login")
+	public String login(Model model) {
+		model.addAttribute("classActiveLogin",true);
+		return "myAccount";
+	}
+	
+	@RequestMapping(value="/newuser")
+	public String newUser(Model model) {
+		model.addAttribute("classActiveNewUser",true);
+		return "myAccount";
+	}
+	@RequestMapping(value="/forgetpassword")
+	public String forgetPassword(Model model) {
+		model.addAttribute("classActiveForgetPassword",true);
+		return "myAccount";
+	}
+	
+	
+	
 }

@@ -3,7 +3,7 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:th="http://www.thymeleaf.org" layout:decorator="layouts/main">
 <head>
-<title>MY ACCOUNT</title>
+<title>USER ACCOUNT</title>
 </head>
 <body>
 	<div layout:fragment="content">
@@ -21,14 +21,14 @@
 			<div class="row">
 				<div class="col-sm-9 offset-3 ">
 					<ul class="nav nav-tabs">
-						<li class="nav-item"><a class="nav-link" href="#tab1" data-toggle="tab"><span style="color:red">Create New Account</span></a></li>
-						<li class="nav-item"><a class="nav-link" href="#tab2" data-toggle="tab"><span style="color:red">Log in</span></a></li>
-						<li class="nav-item"><a class="nav-link" href="#tab3" data-toggle="tab"><span style="color:red">Forget password</span></a></li>
+						<li class="nav-item" th:classappend="${classActiveNewUser}? 'show active'"><a class="nav-link" href="#tab1" data-toggle="tab"><span style="color:red">Create New Account</span></a></li>
+						<li class="nav-item" th:classappend="${classActiveLogin}? 'show active'"><a class="nav-link" href="#tab2" data-toggle="tab"><span style="color:red">Log in</span></a></li>
+						<li class="nav-item" th:classappend="${classActiveForgetPassword}? 'show active'"><a class="nav-link" href="#tab3" data-toggle="tab"><span style="color:red">Forget password</span></a></li>
 					</ul>
 					
 					<!-- tab panels -->
 					<div class="tab-content">
-						<div class="tab-pane fade" id="tab1">
+						<div class="tab-pane fade" id="tab1" th:classappend="${classActiveNewUser}? 'show active'">
 							<div class="panel-group">
 								<div class="panel panel-default">
 									<div class="panel-body">
@@ -48,7 +48,7 @@
 							</div>
 						</div>
 						<!-- Login tab -->
-						<div class="tab-pane fade" id="tab2">
+						<div class="tab-pane fade" th:classappend="${classActiveLogin}? 'show active'" id="tab2">
 							<div class="panel-group">
 								<div class="panel panel-default">
 									<div class="panel-body">
@@ -68,7 +68,7 @@
 							</div>
 						</div>
 						<!-- Forget password tab -->
-						<div class="tab-pane fade" id="tab3">
+						<div class="tab-pane fade" id="tab3" th:classappend="${classActiveForgetPassword}? 'show active'">
 							<div class="panel-group">
 								<div class="panel panel-default">
 									<div class="panel-body">

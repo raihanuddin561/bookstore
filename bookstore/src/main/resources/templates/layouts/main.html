@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	>
 <head>
 <meta charset="UTF-8">
 <title></title>
@@ -30,8 +32,9 @@
 
 			<ul class="navbar-nav navbar-dark navbar-right">
 				<li class="nav-item"><a class="nav-link">Shopping Cart</a></li>
-				<li class="nav-item" th:classappend="${activeMyAccount}?'active'"><a class="nav-link" href="/myaccount">My Account</a></li>
-				<li class="nav-item"><a class="nav-link">Logout</a></li>
+				<li class="nav-item" th:classappend="${activeMyAccount}?'active'"><a sec:authorize="isAnonymous()" class="nav-link" th:href="@{/myaccount}">My Account</a></li>
+				<li class="nav-item" sec:authorize="isAuthenticated()" th:classappend="${activeMyAccount}?'active'"><a  class="nav-link" th:href="@{/myprofile}">My Profile</a></li>
+				<li class="nav-item" sec:authorize="isAuthenticated()"><a  class="nav-link" th:href="@{/logout}">Logout</a></li>
 
 			</ul>
 

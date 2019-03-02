@@ -32,7 +32,10 @@
 							<div class="panel-group">
 								<div class="panel panel-default">
 									<div class="panel-body">
-										<form>
+										<div class="alert alert-info" th:if="${emailSent}">
+											An email sent to your email just you registered now.
+										</div>
+										<form th:action="@{/newuser}" method="post">
 											<div class="form-group">
 												<label for="username">Username:</label>
 												<input type="text" class="form-control" id="username" name="username" />

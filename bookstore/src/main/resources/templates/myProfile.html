@@ -11,7 +11,7 @@
 			<div class="row">
 				<div class="col-sm-8">
 					<h2 class="section_headline">
-						<span th:text="${#strings.toUpperCase{user.username}}"></span>
+						<span th:text="${#strings.toUpperCase(user.username)}"></span>
 					</h2>
 				</div>
 				<div class="col-sm-4">
@@ -46,13 +46,13 @@
 					<div class="tab-content">
 						<!-- Edit user information -->
 						<div class="tab-pane fade" id="tab1"
-							th:classappend="${classActiveNewUser}? 'show active'">
+							th:classappend="${classActiveEdit}? 'show active'">
 							<div class="panel-group">
 								<div class="panel panel-default">
 									<div class="panel-body">
 										<form th:action="@{/updateUserInfo}" method="post">
 											<input type="hidden" name="id" th:value="${user.id}" />
-											<div class="bg-info" th:if="${updateUserInfo">User info
+											<div class="bg-info" th:if="${updateUserInfo}">User info
 												updated.</div>
 											<div class="form-group">
 												<div class="row">
@@ -74,15 +74,15 @@
 											<div class="form-group">
 
 												<label for="userName">User Name</label> <input type="text"
-													class="form-control" id="userName" name="userName"
-													th:value="${user.userName}" />
+													class="form-control" id="userName" name="username"
+													th:value="${user.username}" />
 
 											</div>
 											<div class="form-group">
 
 												<label for="currentPassword">Current Password</label> <input
 													type="text" class="form-control" id="currentPassword"
-													name="currentPassword" th:value="${user.currentPassword}" />
+													name="currentPassword" th:value="${currentPassword}" />
 
 
 											</div>

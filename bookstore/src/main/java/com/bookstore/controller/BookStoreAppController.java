@@ -43,6 +43,7 @@ public class BookStoreAppController {
 	@RequestMapping(value="/myaccount")
 	public String myAccount(Model model) {
 		model.addAttribute("activeMyAccount",true);
+		model.addAttribute("classActiveNewUser",true);
 		return "myAccount";
 	}
 	
@@ -97,7 +98,7 @@ public class BookStoreAppController {
 		model.addAttribute("classActiveNewUser",true);
 		return "myAccount";
 	}
-	@RequestMapping(value="/newuser")
+	@RequestMapping(value="/newUser")
 	public String newUser(Locale locale,@RequestParam("token") String token,Model model) {
 		PasswordResetToken passToken = userService.getPasswordResetToken(token);
 		if(passToken == null) {
@@ -113,7 +114,7 @@ public class BookStoreAppController {
 		Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails,userDetails.getPassword(),userDetails.getAuthorities());
 		
 		SecurityContextHolder.getContext().setAuthentication(authentication);
-		
+		model.addAttribute("user",user);
 		model.addAttribute("classActiveEdit",true);
 		return "myProfile";
 	}

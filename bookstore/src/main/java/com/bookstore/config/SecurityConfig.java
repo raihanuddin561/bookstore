@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	private BCryptPasswordEncoder passwordEncoder() {
 		return SecurityUtility.passwordEncoder();
 	}
-	private static final String[] PUBLIC_MATCHERS= {"/css/**","/js/**","/images/**","/","/myaccount","/newuser","/forgetpassword"};
+	private static final String[] PUBLIC_MATCHERS= {"/css/**","/js/**","/images/**","/","/myaccount","/newuser","/newUser","/forgetpassword"};
 	
 	protected void configure(HttpSecurity http) throws Exception{
 		http

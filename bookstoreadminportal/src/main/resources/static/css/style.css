@@ -1,0 +1,34 @@
+@charset "UTF-8";
+	.box{
+		border: 1px solid red;
+	}
+
+hr{
+	border: 1px solid purple;
+}
+.section_headline{
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 24px;
+	color: black;
+	margin: auto;
+	text-align:center;
+	margin-top: 50px;
+}
+
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }

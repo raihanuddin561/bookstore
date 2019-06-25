@@ -1,0 +1,107 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layouts/main">
+<head>
+<title>USER ACCOUNT</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h2 class="section_headline"><span>User Account</span></h2>
+				</div>
+				<div class="col-sm-4">
+					<img src="/images/booklogo.png" class="img-responsive"/>
+				</div>
+			</div>
+
+			<hr />
+			<div class="row">
+				<div class="col-sm-9 offset-3 ">
+					<ul class="nav nav-tabs">
+						<li class="nav-item" th:classappend="${classActiveNewUser}? 'show active'"><a class="nav-link" href="#tab1" data-toggle="tab"><span style="color:red">Create New Account</span></a></li>
+						<li class="nav-item" th:classappend="${classActiveLogin}? 'show active'"><a class="nav-link" href="#tab2" data-toggle="tab"><span style="color:red">Log in</span></a></li>
+						<li class="nav-item" th:classappend="${classActiveForgetPassword}? 'show active'"><a class="nav-link" href="#tab3" data-toggle="tab"><span style="color:red">Forget password</span></a></li>
+					</ul>
+					
+					<!-- tab panels -->
+					<div class="tab-content">
+						<div class="tab-pane fade" id="tab1" th:classappend="${classActiveNewUser}? 'show active'">
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<div class="alert alert-info" th:if="${emailSent}">
+											An email sent to your email just you registered now.
+										</div>
+										<form th:action="@{/newuser}" method="post">
+											<div class="form-group">
+												<label for="username">* Username:</label> &nbsp;<span th:if="${usernameExists}" style="color:red">Username Already Exists.</span>
+												<input type="text" class="form-control" id="username" name="username" />
+											</div>
+											<div class="form-group">
+												<label for="email">Email Address:</label>&nbsp;<span th:if="${emailExists}" style="color:red">Email Already Exists.</span>
+												<input type="text" class="form-control" id="email" name="email" />
+											</div>
+											<button type="submit" class="btn btn-primary">Create Account</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Login tab -->
+						<div class="tab-pane fade" th:classappend="${classActiveLogin}? 'show active'" id="tab2">
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<form th:action="@{/login}" method="post">
+											<div class="form-group">
+												<label for="username">Username:</label>
+												<input type="text" class="form-control" id="username" name="username" />
+											</div>
+											<div class="form-group">
+												<label for="password">Password:</label>
+												<input type="password" class="form-control" id="password" name="password" />
+											</div>
+											<button type="submit" class="btn btn-primary">Login</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Forget password tab -->
+						<div class="tab-pane fade" id="tab3" th:classappend="${classActiveForgetPassword}? 'show active'">
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<div class="panel-body">
+									<div th:if="${emailNotExist}" class="alert alert-danger">Email doesn't exist</div>
+									<div th:if="${forgetPasswordEmailSent}" class="alert alert-danger">Email sent</div>
+										<form th:action="@{/forgetpassword}" method="post">
+											<div class="form-group">
+												<label for="recoverEmail">Your Email:</label>
+												<input type="text" class="form-control" id="recoverEmail" name="email" />
+											</div>
+											
+											<button type="submit" class="btn btn-primary">Get your Account</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+
+</body>
+</html>

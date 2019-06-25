@@ -1,0 +1,133 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layouts/main">
+<head>
+<title>User profile</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h2 class="section_headline">
+						<span th:text="${#strings.toUpperCase(user.username)}"></span>
+					</h2>
+				</div>
+				<div class="col-sm-4">
+					<img src="/images/booklogo.png" class="img-responsive" />
+				</div>
+			</div>
+
+			<hr />
+			<div class="row">
+				<div class="col-sm-9 offset-3 ">
+					<ul class="nav nav-tabs">
+						<li class="nav-item"
+							th:classappend="${classActiveEdit}? 'show active'"><a
+							class="nav-link" href="#tab1" data-toggle="tab"><span
+								style="color: red">Edit</span></a></li>
+						<li class="nav-item"
+							th:classappend="${classActiveOrder}? 'show active'"><a
+							class="nav-link" href="#tab2" data-toggle="tab"><span
+								style="color: red">Orders</span></a></li>
+						<li class="nav-item"
+							th:classappend="${classActiveBilling}? 'show active'"><a
+							class="nav-link" href="#tab3" data-toggle="tab"><span
+								style="color: red">Billing</span></a></li>
+						<li class="nav-item"
+							th:classappend="${classActiveShipping}? 'show active'"><a
+							class="nav-link" href="#tab3" data-toggle="tab"><span
+								style="color: red">Shipping</span></a></li>
+
+					</ul>
+
+					<!-- tab panels -->
+					<div class="tab-content">
+						<!-- Edit user information -->
+						<div class="tab-pane fade" id="tab1"
+							th:classappend="${classActiveEdit}? 'show active'">
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<form th:action="@{/updateUserInfo}" method="post">
+											<input type="hidden" name="id" th:value="${user.id}" />
+											<div class="bg-info" th:if="${updateUserInfo}">User info
+												updated.</div>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-6">
+														<label for="firstname">FirstName</label> <input
+															type="text" class="form-control" id="firstName"
+															name="firstName" th:value="${user.firstName}" />
+
+													</div>
+													<div class="col-sm-6">
+														<label for="lastname">lastName</label> <input type="text"
+															class="form-control" id="lastName" name="lastName"
+															th:value="${user.lastName}" />
+
+													</div>
+
+												</div>
+											</div>
+											<div class="form-group">
+
+												<label for="userName">User Name</label> <input type="text"
+													class="form-control" id="userName" name="username"
+													th:value="${user.username}" />
+
+											</div>
+											<div class="form-group">
+
+												<label for="currentPassword">Current Password</label> <input
+													type="text" class="form-control" id="currentPassword"
+													name="currentPassword" th:value="${currentPassword}" />
+
+
+											</div>
+											<p style="color: #828282">Enter your current password to
+												change the email address or password</p>
+											<div class="form-group">
+
+												<label for="email">Email</label> <input type="text"
+													class="form-control" id="email" name="email"
+													th:value="${user.email}" />
+
+											</div>
+											<p style="color: #828282">Input a Valid email address</p>
+
+											<div class="form-group">
+
+												<label for="txtNewPassword"> Password</label> <input
+													type="password" class="form-control" id="txtNewPassword"
+													name="newPassword" />
+
+
+											</div>
+											<div class="form-group">
+
+												<label for="txtConfirmPassword"> Password</label> <input
+													type="password" class="form-control" id="txtConfirmPassword"
+													name="newPassword" />
+
+
+											</div>
+											<p style="color:#828282">to change current password, enter new password in both field.</p>
+											<button type="submit" class="btn btn-primary">Create
+												Account</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+		
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>

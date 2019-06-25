@@ -22,7 +22,7 @@ public interface SecurityUtility {
 		Random rnd = new Random();
 		while(salt.length()<18) {
 			int index = (int)(rnd.nextFloat()*SALTCHARS.length());
-			salt.append(SALTCHARS).charAt(index);
+			salt.append(SALTCHARS.charAt(index));
 		}
 		String saltStr = salt.toString();
 		return saltStr;

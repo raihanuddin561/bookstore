@@ -27,7 +27,7 @@ public class BookstoreApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		User user1 = new User();
+		/*User user1 = new User();
 		user1.setUsername("user");
 		user1.setPassword(SecurityUtility.passwordEncoder().encode("admin"));
 		user1.setEmail("user@gmail.com");
@@ -38,7 +38,7 @@ public class BookstoreApplication implements CommandLineRunner{
 		userRoles.add(new UserRole(user1,role1));
 		userService.createUser(user1, userRoles);
 		
-		
+		*/
 		
 		
 	}

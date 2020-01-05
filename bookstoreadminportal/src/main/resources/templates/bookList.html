@@ -1,0 +1,38 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layouts/main">
+<head>
+<title>HOME</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1>Book List</h1>
+		
+		<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Category</th>
+      <th scope="col">List Price</th>
+       <th scope="col">Our price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-th-each="book:${bookList}">
+  
+     
+      <td th:text="${book.id}"></td>
+      <td th:text="${book.title}"></td>
+      <td th:text="${book.category}"></td>
+      <td th:text="${book.listPrice}"></td>
+      <td th:text="${book.ourPrice}"></td>
+      <td></td>
+    </tr>
+   
+  </tbody>
+</table>
+	</div>
+</body>
+</html>

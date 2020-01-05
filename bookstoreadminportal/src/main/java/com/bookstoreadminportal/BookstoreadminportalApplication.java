@@ -25,8 +25,8 @@ public class BookstoreadminportalApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		
-		/*User user1 = new User();
+		/*
+		User user1 = new User();
 		user1.setUsername("admin");
 		user1.setPassword(SecurityUtility.passwordEncoder().encode("admin"));
 		user1.setEmail("admin@gmail.com");
@@ -35,9 +35,9 @@ public class BookstoreadminportalApplication implements CommandLineRunner {
 		role1.setRoleId(0);
 		role1.setName("ROLE_ADMIN");
 		userRoles.add(new UserRole(user1,role1));
-		userService.createUser(user1, userRoles);*/
+		userService.createUser(user1, userRoles);
 		
-		
+		*/
 		
 		
 	}

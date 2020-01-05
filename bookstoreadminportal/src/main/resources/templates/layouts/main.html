@@ -2,8 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-	>
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <title></title>
@@ -21,20 +20,29 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item " th:classappend="${classActiveHome}?'active'"><a class="nav-link" th:href="@{/}">Home </a></li>
+				<li class="nav-item " th:classappend="${classActiveHome}?'active'"><a
+					class="nav-link" th:href="@{/book/add}">Add new Book </a></li>
+				<li class="nav-item " th:classappend="${classActiveHome}?'active'"><a
+					class="nav-link" th:href="@{/book/viewBook}">View Book List </a></li>
 
-				
+
 			</ul>
 
 			<ul class="navbar-nav navbar-dark navbar-right">
-				<li class="nav-item"><a th:href="@{/logout}" class="nav-link">Sign Out</a></li>
+				<li class="nav-item"><a th:href="@{/logout}" class="nav-link">Sign
+						Out</a></li>
 			</ul>
 
 		</div>
 
 	</nav>
 
-	<div layout:fragment="content"></div>
+	<div class="container">
+
+		<div layout:fragment="content"></div>
+	</div>
+	<div class="footer mb-5">
+	</div>
 
 	<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
 	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>

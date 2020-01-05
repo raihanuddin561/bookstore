@@ -20,36 +20,8 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
-	
 	@Autowired
 	private RoleRepository roleRepository;
-	
-	@Autowired
-	private PasswordResetTokenRepository passwordResetTokenRepository;
-	@Override
-	public PasswordResetToken getPasswordResetToken(final String token) {
-		// TODO Auto-generated method stub
-		return passwordResetTokenRepository.findByToken(token);
-	}
-
-	@Override
-	public void createPasswordResetTokenForUser(final User user,final String token) {
-		final PasswordResetToken myToken = new PasswordResetToken(token,user);
-		passwordResetTokenRepository.save(myToken);
-		
-	}
-
-	@Override
-	public User findByUsername(String username) {
-		// TODO Auto-generated method stub
-		return userRepository.findByUsername(username);
-	}
-
-	@Override
-	public User findByEmail(String email) {
-		// TODO Auto-generated method stub
-		return userRepository.findByEmail(email);
-	}
 
 	@Override
 	public User createUser(User user, Set<UserRole> userRoles)throws Exception {
